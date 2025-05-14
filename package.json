@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "npx cypress open"
+    "dev": "npx cypress open",
+    "cypress-cloud-run": "npx cypress run --browser chrome headed --record --key 41258e16-e106-4cbb-937b-eaa21a41b769"
+
   },
   "keywords": [],
   "author": "",

@@ -2,6 +2,7 @@ const { defineConfig } = require("cypress");
 const allureWriter = require('@shelex/cypress-allure-plugin/writer');
 
 module.exports = defineConfig({
+  projectId: "fgmkji",
   e2e: {
     baseUrl: 'https://nextocasino.com', //baseUrl
     viewportHeight:900,
