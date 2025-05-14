@@ -1,0 +1,17 @@
+{
+  "name": "cypress_framework_next",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx cypress open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^2.41.1",
+    "allure-cypress": "^3.2.2",
+    "cypress": "^14.3.3"
+  }
+}
