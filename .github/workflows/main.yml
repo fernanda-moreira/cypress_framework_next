@@ -1,5 +1,7 @@
 name: Regression End-to-end tests
+
 on: push
+
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
@@ -7,5 +9,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Cypress run
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress tests on Cloud
         uses: cypress-io/github-action@v6
+        with:
+          record: true
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
