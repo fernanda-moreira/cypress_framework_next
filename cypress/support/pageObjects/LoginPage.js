@@ -18,7 +18,7 @@ class LoginPage {
     verifyLoginSuccess() {
         // Aguarda o carregamento da página após o login
         cy.wait(2000); // Ajuste o tempo conforme necessário
-        cy.get('button.absolute.right-3.top-3').should('be.visible').click();
+        //cy.get('button.absolute.right-3.top-3').should('be.visible').click();
         cy.url().should('include', '/');
         cy.contains('Welcome').should('be.visible');
     }

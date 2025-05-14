@@ -5,8 +5,8 @@ module.exports = defineConfig({
   projectId: "fgmkji",
   e2e: {
     baseUrl: 'https://nextocasino.com', //baseUrl
-    viewportHeight:900,
-    viewportWidth:1440,
+    //viewportHeight:900,
+    //viewportWidth:1440,
     specPattern: [
       "cypress/e2e/**/*.cy.{js,jsx,ts,tsx}",
     ],
