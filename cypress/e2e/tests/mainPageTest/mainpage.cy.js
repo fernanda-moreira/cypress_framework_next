@@ -12,8 +12,7 @@ describe('Navigation Bar Test', () => {
 
     beforeEach(() => {
         const validUser = users.validUser;
-        LoginPage.login(validUser.username, validUser.password); // Realiza o login antes de cada teste
-
+        LoginPage.login(validUser.username, validUser.password); 
     });
     it('should navigate through all links in the navigation bar', () => {
         MainPage.verificaLinkCasino();
@@ -24,3 +23,4 @@ describe('Navigation Bar Test', () => {
         MainPage.verificaLinkCalendario();
     });
 });
+ 
