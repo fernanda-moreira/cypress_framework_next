@@ -44,6 +44,7 @@ describe('Register Now Page Tests', () => {
   
       cy.get('input[name="firstName"]').should('be.visible');
       cy.get('input[name="firstName"]').type('J').blur();
+      
       cy.get('button').contains('Continue').click();
   
       cy.get('div.text-sm.block.text-color-i.mt-1').should('contain', 'First name must be at least 2 characters');
