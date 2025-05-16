@@ -25,4 +25,4 @@ jobs:
           group: "Regression Tests - Parallel"
           ci-build-id: ${{ github.run_id }}  # Garante um ID único para cada execução
         env:
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}  
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
