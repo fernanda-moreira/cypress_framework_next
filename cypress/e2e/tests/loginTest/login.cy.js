@@ -28,6 +28,7 @@ describe('Login Page Tests', () => {
         LoginPage.enterPassword(password);
         LoginPage.clickLoginButton();
         LoginPage.verifyLoginError();
+        
     });
 
     it('3. should show error for invalid email format', () => {
