@@ -3,6 +3,10 @@
         "username": "test@test.com",
         "password": "Ts123456"
     },
+    "ValidName":{
+        "username": "Test T.",
+        "lastName": "Test t."
+    },
     "invalidUser": {
         "username": "test@test.com",
         "password": "senhaErrada"

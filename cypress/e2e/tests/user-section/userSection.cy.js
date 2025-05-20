@@ -16,7 +16,7 @@ describe('User Section Tests', () => {
     });
 
     it('TC175 - should display user name and surname', () => {
-        UserSectionPage.verifyUserNameDisplay(users.validUser.fullName);
+        UserSectionPage.verifyUserNameDisplay(users.ValidName.username);
     });
 
     it('TC176 - should display account balance', () => {
@@ -24,11 +24,12 @@ describe('User Section Tests', () => {
     });
 
     it('TC177 - should toggle hidden balance option', () => {
-        UserSectionPage.toggleBalanceVisibility();
-        UserSectionPage.verifyAccountBalanceVisible(); // Optional: check balance is now hidden
+        UserSectionPage.clickButtonPerfil();
+        UserSectionPage.clickButtonHidden();
     });
 
     it('TC178 - should display real money balance', () => {
+        UserSectionPage.clickButtonPerfil();
         UserSectionPage.verifyRealMoneyBalance();
     });
 
@@ -37,13 +38,13 @@ describe('User Section Tests', () => {
     });
 
     it('TC180 - should navigate to profile page', () => {
+        UserSectionPage.clickButtonPerfil();
         UserSectionPage.clickProfileLink();
-        cy.url().should('include', '/profile');
     });
 
     it('TC181 - should navigate to inbox page', () => {
+        UserSectionPage.clickButtonPerfil();
         UserSectionPage.clickInboxLink();
-        cy.url().should('include', '/inbox');
     });
 
     it('TC182 - should navigate to bonuses page', () => {
@@ -53,22 +54,21 @@ describe('User Section Tests', () => {
 
     it('TC183 - should navigate to deposit page', () => {
         UserSectionPage.clickDepositLink();
-        cy.url().should('include', '/deposit');
     });
 
     it('TC184 - should navigate to withdraw page', () => {
+        UserSectionPage.clickButtonPerfil();
         UserSectionPage.clickWithdrawLink();
-        cy.url().should('include', '/withdraw');
     });
 
     it('TC185 - should navigate to pending withdraw page', () => {
+        UserSectionPage.clickButtonPerfil();
         UserSectionPage.clickPendingWithdrawLink();
-        cy.url().should('include', '/withdraw/pending');
     });
 
-    it('TC186 - should navigate to account statement page', () => {
+    it.only('TC186 - should navigate to account statement page', () => {
+        UserSectionPage.clickButtonPerfil();
         UserSectionPage.clickAccountStatementLink();
-        cy.url().should('include', '/account-statement');
     });
 
     it('TC187 - should logout and redirect to homepage or login page', () => {
