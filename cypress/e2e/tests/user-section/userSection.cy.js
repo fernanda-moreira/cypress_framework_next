@@ -66,7 +66,7 @@ describe('User Section Tests', () => {
         UserSectionPage.clickPendingWithdrawLink();
     });
 
-    it.only('TC186 - should navigate to account statement page', () => {
+    it('TC186 - should navigate to account statement page', () => {
         UserSectionPage.clickButtonPerfil();
         UserSectionPage.clickAccountStatementLink();
     });
