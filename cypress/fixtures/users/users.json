@@ -6,7 +6,19 @@
     "invalidUser": {
         "username": "test@test.com",
         "password": "senhaErrada"
+    },
+    "invalidFormat": {
+        "email": "invalid-email-format"
+    },
+    "emptyField": {
+        "email": "",
+        "password": ""
+    },
+    "longCredentials": {
+        "email": "veryloaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaangemailaddressfortestingpurposes@example.com",
+        "password": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    "togglePassword": {
+        "password": "TestPassword123"
     }
-
-    
 }
