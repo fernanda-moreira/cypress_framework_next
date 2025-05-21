@@ -26,12 +26,43 @@ describe('Navigation Bar Test', () => {
     });
 
     // TC002 - Guest navigation test for Slot Games
-    it.only('TC002 - should navigate to Slot Games page as guest', () => {
+    it('TC002 - should navigate to Slot Games page as guest', () => {
     cy.clearCookies(); // Ensure no session
     cy.visit('/');     // Start from home page
     MainPage.verificaLinkAllGamesGuest();
     });
 
+
+
+    it('TC003 - should navigate to Slot Games page as guest', () => {
+    cy.clearCookies();
+    cy.visit('/');
+    MainPage.verificaLinkSlotGamesGuest();
+    });
+
+    it('TC004 - should navigate to Live Casino page as guest', () => {
+    cy.clearCookies();
+    cy.visit('/');
+    MainPage.verificaLinkLiveCasinoGuest();
+    });
+
+    it('TC005 - should navigate to Virtual Games page as guest', () => {
+    cy.clearCookies();
+    cy.visit('/');
+    MainPage.verificaLinkVirtualGamesGuest();
+    });
+
+    it('TC006 - should navigate to Top Table & Crash Games page as guest', () => {
+    cy.clearCookies();
+    cy.visit('/');
+    MainPage.verificaLinkTopTableAndCrashGamesGuest();
+    });
+
+    it('TC007 - should navigate to Lucky Games page as guest', () => {
+    cy.clearCookies();
+    cy.visit('/');
+    MainPage.verificaLinkLuckyGamesGuest();
+    });
 
     // // ✅ TC002 - Gaming Menu Options Clickability
     // it('TC002 - Menu options are clickable and redirect correctly', () => {
