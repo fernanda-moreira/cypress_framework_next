@@ -16,7 +16,7 @@ describe('User Section Tests', () => {
         LoginPage.login(randomUser.username, randomUser.password);
     });
 
-    it.only('TC175 - should display user name and surname', () => {
+    it('TC175 - should display user name and surname', () => {
         UserSectionPage.verifyUserNameDisplay(users.ValidName.username);
     });
 
