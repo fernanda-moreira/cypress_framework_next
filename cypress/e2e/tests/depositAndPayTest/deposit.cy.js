@@ -2,7 +2,7 @@ import depositPay from '../../../support/pageObjects/depositPay';
 import UserSectionPage from '../../../support/pageObjects/UserSectionPage';
 import LoginPage from '../../../support/pageObjects/LoginPage';
 
-describe('Navigation Bar Test', () => {
+describe('Tests Deposit Payments Methods', () => {
     let users;
 
     before(() => {
