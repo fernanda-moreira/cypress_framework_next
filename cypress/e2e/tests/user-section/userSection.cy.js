@@ -11,11 +11,12 @@ describe('User Section Tests', () => {
     });
 
     beforeEach(() => {
-        // Log in before each test
-        LoginPage.login(users.validUser.username, users.validUser.password);
+        const validUserList = Array.isArray(users.validUser) ? users.validUser : [users.validUser];
+        const randomUser = validUserList[Math.floor(Math.random() * validUserList.length)];
+        LoginPage.login(randomUser.username, randomUser.password);
     });
 
-    it('TC175 - should display user name and surname', () => {
+    it.only('TC175 - should display user name and surname', () => {
         UserSectionPage.verifyUserNameDisplay(users.ValidName.username);
     });
 

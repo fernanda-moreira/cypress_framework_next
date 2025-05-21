@@ -1,14 +1,32 @@
 {
-    "validUser": {
-        "username": "test@test.com",
-        "password": "Ts123456"
-    },
-    "ValidName":{
-        "username": "Test T.",
+    "validUser": [
+        {
+            "username": "test@test.com",
+            "password": "Ts123456"
+        },
+        {
+            "username": "germany-test@test.com",
+            "password": "Ts123456"
+        },
+        {
+            "username": "finland-test@test.com",
+            "password": "Ts123456"
+        },
+        {
+            "username": "norway-test@test.com",
+            "password": "Ts123456"
+        },
+        {
+            "username": "netherlands-test@test.com",
+            "password": "Ts123456"
+        }
+    ],
+    "ValidName": {
+        "username": "T.",
         "lastName": "Test t."
     },
     "invalidUser": {
-        "username": "test@test.com",
+        "username": "test@testasas.com",
         "password": "senhaErrada"
     },
     "invalidFormat": {

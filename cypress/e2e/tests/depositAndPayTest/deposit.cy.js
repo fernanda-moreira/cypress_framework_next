@@ -2,7 +2,7 @@ import depositPay from '../../../support/pageObjects/depositPay';
 import UserSectionPage from '../../../support/pageObjects/UserSectionPage';
 import LoginPage from '../../../support/pageObjects/LoginPage';
 
-describe('Tests Deposit Payments Methods', () => {
+describe('Tests Deposits and Payment Methots', () => {
     let users;
 
     before(() => {
@@ -12,10 +12,12 @@ describe('Tests Deposit Payments Methods', () => {
     });
 
     beforeEach(() => {
-        const validUser = users.validUser;
-        LoginPage.login(validUser.username, validUser.password); // Realiza o login antes de cada teste
-
+        const validUserList = Array.isArray(users.validUser) ? users.validUser : [users.validUser];
+        const randomUser = validUserList[Math.floor(Math.random() * validUserList.length)];
+        LoginPage.login(randomUser.username, randomUser.password);
     });
+
+
 
 
     it('TC165 - Verify Display of Deposit Payment Methods', () => {

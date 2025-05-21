@@ -2,6 +2,7 @@ import LoginPage from '../../../support/pageObjects/LoginPage';
 
 describe('Login Page Tests', () => {
     let users;
+    let randomUser;
 
     before(() => {
         cy.fixture('users/users.json').then((data) => {
@@ -10,13 +11,14 @@ describe('Login Page Tests', () => {
     });
 
     beforeEach(() => {
+        const validUserList = Array.isArray(users.validUser) ? users.validUser : [users.validUser];
+        randomUser = validUserList[Math.floor(Math.random() * validUserList.length)];
         LoginPage.visit();
     });
 
     it('1. should login successfully with valid credentials', () => {
-        const { username, password } = users.validUser;
-        LoginPage.enterEmail(username);
-        LoginPage.enterPassword(password);
+        LoginPage.enterEmail(randomUser.username);
+        LoginPage.enterPassword(randomUser.password);
         LoginPage.clickLoginButton();
         LoginPage.clickCloseModal();
         LoginPage.verifyLoginSuccess();
@@ -39,15 +41,14 @@ describe('Login Page Tests', () => {
     });
 
     it('4. should show error for empty email field', () => {
-        LoginPage.enterEmail('');
+        LoginPage.enterEmail(' ');
         LoginPage.enterPassword('ValidPassword123');
         LoginPage.clickLoginButton();
         LoginPage.verifyEmptyEmailError();
     });
 
     it('5. should show error for empty password field', () => {
-        LoginPage.enterEmail(users.validUser.username);
-        LoginPage.enterPassword('');
+        LoginPage.enterEmail(randomUser.username);
         LoginPage.clickLoginButton();
         LoginPage.verifyEmptyPasswordError();
     });

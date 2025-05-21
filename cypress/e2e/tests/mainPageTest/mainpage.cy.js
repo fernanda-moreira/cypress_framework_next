@@ -6,13 +6,14 @@ describe('Navigation Bar Test', () => {
 
     before(() => {
         cy.fixture('users/users.json').then((data) => {
-            users = data;   
+            users = data;
         });
     });
 
     beforeEach(() => {
-        const validUser = users.validUser;
-        LoginPage.login(validUser.username, validUser.password); 
+        const validUserList = Array.isArray(users.validUser) ? users.validUser : [users.validUser];
+        const randomUser = validUserList[Math.floor(Math.random() * validUserList.length)];
+        LoginPage.login(randomUser.username, randomUser.password);
     });
 
     // TC001 - Logged in navigation test
@@ -27,41 +28,41 @@ describe('Navigation Bar Test', () => {
 
     // TC002 - Guest navigation test for Slot Games
     it('TC002 - should navigate to Slot Games page as guest', () => {
-    cy.clearCookies(); // Ensure no session
-    cy.visit('/');     // Start from home page
-    MainPage.verificaLinkAllGamesGuest();
+        cy.clearCookies(); // Ensure no session
+        cy.visit('/');     // Start from home page
+        MainPage.verificaLinkAllGamesGuest();
     });
 
 
 
     it('TC003 - should navigate to Slot Games page as guest', () => {
-    cy.clearCookies();
-    cy.visit('/');
-    MainPage.verificaLinkSlotGamesGuest();
+        cy.clearCookies();
+        cy.visit('/');
+        MainPage.verificaLinkSlotGamesGuest();
     });
 
     it('TC004 - should navigate to Live Casino page as guest', () => {
-    cy.clearCookies();
-    cy.visit('/');
-    MainPage.verificaLinkLiveCasinoGuest();
+        cy.clearCookies();
+        cy.visit('/');
+        MainPage.verificaLinkLiveCasinoGuest();
     });
 
     it('TC005 - should navigate to Virtual Games page as guest', () => {
-    cy.clearCookies();
-    cy.visit('/');
-    MainPage.verificaLinkVirtualGamesGuest();
+        cy.clearCookies();
+        cy.visit('/');
+        MainPage.verificaLinkVirtualGamesGuest();
     });
 
     it('TC006 - should navigate to Top Table & Crash Games page as guest', () => {
-    cy.clearCookies();
-    cy.visit('/');
-    MainPage.verificaLinkTopTableAndCrashGamesGuest();
+        cy.clearCookies();
+        cy.visit('/');
+        MainPage.verificaLinkTopTableAndCrashGamesGuest();
     });
 
     it('TC007 - should navigate to Lucky Games page as guest', () => {
-    cy.clearCookies();
-    cy.visit('/');
-    MainPage.verificaLinkLuckyGamesGuest();
+        cy.clearCookies();
+        cy.visit('/');
+        MainPage.verificaLinkLuckyGamesGuest();
     });
 
     // // ✅ TC002 - Gaming Menu Options Clickability
