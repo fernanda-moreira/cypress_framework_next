@@ -45,6 +45,30 @@ class MainPage {
         cy.get('a[href="/casino/all_games"]').click();
         cy.url().should('include', '/casino/all_games');
     }
+verificaLinkSlotGamesGuest() {
+        cy.get('a[href="/casino/slot_games"]').click();
+        cy.url().should('include', '/casino/slot_games');
+    }
+
+    verificaLinkLiveCasinoGuest() {
+        cy.get('a[href="/casino/live_casino"]').click();
+        cy.url().should('include', '/casino/live_casino');
+    }
+
+    verificaLinkVirtualGamesGuest() {
+        cy.get('a[href="/casino/virtual_games"]').click();
+        cy.url().should('include', '/casino/virtual_games');
+    }
+
+    verificaLinkTopTableAndCrashGamesGuest() {
+        cy.get('a[href="/casino/casino_games"]').click();
+        cy.url().should('include', '/casino/casino_games');
+    }
+
+    verificaLinkLuckyGamesGuest() {
+        cy.get('a[href="/casino/lucky_games"]').click();
+        cy.url().should('include', '/casino/lucky_games');
+    }
 
 
 
