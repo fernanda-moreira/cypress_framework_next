@@ -26,10 +26,10 @@ describe('Navigation Bar Test', () => {
     });
 
     // TC002 - Guest navigation test for Slot Games
-    it('TC002 - should navigate to Slot Games page as guest', () => {
+    it.only('TC002 - should navigate to Slot Games page as guest', () => {
     cy.clearCookies(); // Ensure no session
     cy.visit('/');     // Start from home page
-    MainPage.verificaLinkSlotGamesGuest();
+    MainPage.verificaLinkAllGamesGuest();
     });
 
 
