@@ -85,4 +85,26 @@ describe('Navigation Bar Test', () => {
         });
     });
 
+ it('TC010 - should visually display 8 games in Provider display section (no scroll)', () => {
+    cy.visit('/');
+
+    // Scroll to the provider section
+    cy.get('div._flex_rbhr4_1').first().scrollIntoView();
+
+    cy.get('div._flex_rbhr4_1').first().within(() => {
+        cy.get('div._game_qgay7_1').then(($cards) => {
+            const container = $cards[0].parentElement.parentElement;
+            const containerRect = container.getBoundingClientRect();
+
+            const visibleCards = [...$cards].filter(card => {
+                const rect = card.getBoundingClientRect();
+                return rect.left < containerRect.right && rect.right > containerRect.left;
+            });
+
+            expect(visibleCards.length).to.eq(8);
+        });
+    });
 });
+
+});
+
