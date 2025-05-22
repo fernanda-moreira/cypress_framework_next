@@ -65,13 +65,24 @@ describe('Navigation Bar Test', () => {
         MainPage.verificaLinkLuckyGamesGuest();
     });
 
-    // // ✅ TC002 - Gaming Menu Options Clickability
-    // it('TC002 - Menu options are clickable and redirect correctly', () => {
-    //     MainPage.checkGamingOptionsMenuLinks();
-    // });
+    it('TC009 - should visually display 5.5 games in Live Casino carousel (no scroll)', () => {
+    cy.get('div._flex_qgay7_17').eq(1).within(() => {
+        // Get all game cards in this carousel
+        cy.get('div._game_qgay7_1')
+            .then(($cards) => {
+                const container = $cards[0].parentElement.parentElement; // scroll container
+                const containerRect = container.getBoundingClientRect();
 
-    // // ✅ TC003 - In-page Game Category Navigation
-    // it('TC003 - In-page game category navigation scrolls correctly', () => {
-    //     MainPage.checkCategoryNavigation();
-    // });
+                // Count how many cards are fully or partially visible
+                const visibleCards = [...$cards].filter(card => {
+                    const rect = card.getBoundingClientRect();
+                    return rect.left < containerRect.right && rect.right > containerRect.left;
+                });
+
+                // Expect 6 cards visible (5 full, 1 partial = 5.5)
+                expect(visibleCards.length).to.eq(8);
+            });
+        });
+    });
+
 });
