@@ -26,20 +26,20 @@ describe('Navigation Bar Test', () => {
         MainPage.verificaLinkCalendario();
     });
 
-    // TC002 - Guest navigation test for Slot Games
-    it('TC002 - should navigate to Slot Games page as guest', () => {
-        cy.clearCookies(); // Ensure no session
-        cy.visit('/');     // Start from home page
-        MainPage.verificaLinkAllGamesGuest();
-    });
+        // TC002 - Guest navigation test for Slot Games
+        it('TC002 - should navigate to All Games page as guest', () => {
+            cy.clearCookies(); // Ensure no session
+            cy.visit('/');     // Start from home page
+            MainPage.verificaLinkAllGamesGuest();
+        });
 
 
 
-    it('TC003 - should navigate to Slot Games page as guest', () => {
-        cy.clearCookies();
-        cy.visit('/');
-        MainPage.verificaLinkSlotGamesGuest();
-    });
+        it('TC003 - should navigate to Slot Games page as guest', () => {
+            cy.clearCookies();
+            cy.visit('/');
+            MainPage.verificaLinkSlotGamesGuest();
+        });
 
     it('TC004 - should navigate to Live Casino page as guest', () => {
         cy.clearCookies();
