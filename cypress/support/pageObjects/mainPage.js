@@ -79,7 +79,7 @@ class MainPage {
     }
 
     verificaLinkLuckyGamesGuest() {
-        cy.wait(100);s
+        cy.wait(100);
         cy.get('a[href="/casino/lucky_games"]:visible').first().should('be.visible').click();
         cy.url().should('include', '/casino/lucky_games');
     }
