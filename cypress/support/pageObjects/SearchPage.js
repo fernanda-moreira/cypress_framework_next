@@ -4,7 +4,8 @@ class SearchPage {
     }
 
     openSearchBar() {
-        cy.get('button[class="relative w-full"]').click();
+        cy.wait(100);
+        cy.get('button[class="relative w-full"]').first().should('be.visible').click();
     }
 
     enterSearchTerm(term) {
