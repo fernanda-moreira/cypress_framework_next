@@ -38,4 +38,9 @@ describe('Tests Deposits and Payment Methots', () => {
         depositPay.clickBack("visa_light", '4')
         depositPay.clickBack("visa_light", '5')
     });
+
+    it('many many', () => {
+        UserSectionPage.clickDepositLink();
+        depositPay.verifyAllDepositMethodsLimits()
+    });
 });
