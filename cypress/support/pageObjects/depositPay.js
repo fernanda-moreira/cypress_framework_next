@@ -55,7 +55,7 @@ class depositPay {
 
                     cy.then(() => {
                         const input = cy.get("input[name='amount']");
-                        const submitButton = cy.get("button").contains("Submit");
+                        const submitButton = cy.get("button").contains("SUBMIT");
 
                         input.clear().type((minValue - 0.01).toFixed(2));
                         submitButton.click();
@@ -67,6 +67,44 @@ class depositPay {
                     });
                 });
             });
+    }
+
+    clickBack(methodImageName, eq) {
+        cy.get('button.bg-color-l')
+            .should('be.visible')
+            .click();
+        cy.get(`img[src*="${methodImageName}.png"]`)
+            .should("be.visible").eq(eq)
+            .click();
+        let minValue, maxValue;
+
+        cy.get("div.truncate")
+            .contains(/^Min:/)
+            .invoke("text")
+            .then((text) => {
+                minValue = parseFloat(text.replace(/[^\d,]/g, "").replace(",", "."));
+            });
+
+        cy.get("div.truncate")
+            .contains(/^Max:/)
+            .invoke("text")
+            .then((text) => {
+                const cleanText = text.replace(/[^\d,]/g, "").replace(",", "");
+                maxValue = parseFloat(cleanText);
+            });
+
+        cy.then(() => {
+            const input = cy.get("input[name='amount']");
+            const submitButton = cy.get("button").contains("SUBMIT");
+
+            input.clear().type((minValue - 0.01).toFixed(2));
+            submitButton.click();
+            cy.get("div.text-color-error").should("contain", "greater than or equal to");
+
+            input.clear().type((maxValue + 0.01).toFixed(2));
+            submitButton.click();
+            cy.get("div.text-color-error").should("contain", "less than or equal to");
+        });
     }
 }
 export default new depositPay();
