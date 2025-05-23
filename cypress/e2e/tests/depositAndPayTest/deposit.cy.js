@@ -24,4 +24,9 @@ describe('Tests Deposits and Payment Methots', () => {
         UserSectionPage.clickDepositLink();
         depositPay.verifyClickableDepositMethods();
     });
+
+    it.only('TC166 - Verify Min/Max Limits for Deposit Methods', () => {
+        UserSectionPage.clickDepositLink();
+        depositPay.verifyMinMaxLimitsDepositMethod("jeton_cash")
+    });
 });
