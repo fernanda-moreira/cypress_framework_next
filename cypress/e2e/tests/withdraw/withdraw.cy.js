@@ -34,7 +34,7 @@ describe('Tests Deposits and Payment Methots', () => {
         withdraw.verifiMsgAccountIsNotLinked("acme-payments_light");
     });
 
-        it.only('TC157 - Withdrawal Amount Within Limits', () => {
+        it('TC157 - Withdrawal Amount Within Limits', () => {
         UserSectionPage.clickButtonPerfil();
         UserSectionPage.clickWithdrawLink();
         withdraw.verifyAllDepositMethodsLimitsWithDraw()
