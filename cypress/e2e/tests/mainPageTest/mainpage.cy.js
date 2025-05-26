@@ -66,58 +66,58 @@ describe('Navigation Bar Test', () => {
     });
 
     it('TC009 - should visually display 5.5 games in Live Casino carousel (no scroll)', () => {
-    cy.get('div._flex_qgay7_17').eq(1).within(() => {
-        // Get all game cards in this carousel
-        cy.get('div._game_qgay7_1')
-            .then(($cards) => {
-                const container = $cards[0].parentElement.parentElement; // scroll container
+        cy.get('div._flex_qgay7_17').eq(1).within(() => {
+            // Get all game cards in this carousel
+            cy.get('div._game_qgay7_1')
+                .then(($cards) => {
+                    const container = $cards[0].parentElement.parentElement; // scroll container
+                    const containerRect = container.getBoundingClientRect();
+
+                    // Count how many cards are fully or partially visible
+                    const visibleCards = [...$cards].filter(card => {
+                        const rect = card.getBoundingClientRect();
+                        return rect.left < containerRect.right && rect.right > containerRect.left;
+                    });
+
+                    // Expect 6 cards visible (5 full, 1 partial = 5.5)
+                    expect(visibleCards.length).to.eq(8);
+                });
+        });
+    });
+
+    it('TC010 - should visually display 8 games in Provider display section (no scroll)', () => {
+        cy.visit('/');
+
+        // Scroll to the provider section
+        cy.get('div._flex_rbhr4_1').first().scrollIntoView();
+
+        cy.get('div._flex_rbhr4_1').first().within(() => {
+            cy.get('div._game_qgay7_1').then(($cards) => {
+                const container = $cards[0].parentElement.parentElement;
                 const containerRect = container.getBoundingClientRect();
 
-                // Count how many cards are fully or partially visible
                 const visibleCards = [...$cards].filter(card => {
                     const rect = card.getBoundingClientRect();
                     return rect.left < containerRect.right && rect.right > containerRect.left;
                 });
 
-                // Expect 6 cards visible (5 full, 1 partial = 5.5)
                 expect(visibleCards.length).to.eq(8);
             });
         });
     });
 
-    it('TC010 - should visually display 8 games in Provider display section (no scroll)', () => {
-    cy.visit('/');
+    it('TC011 - should display all games after clicking "Show All"', () => {
+        cy.visit('/');
 
-        // Scroll to the provider section
-         cy.get('div._flex_rbhr4_1').first().scrollIntoView();
+        // Scroll to ensure the button is in view
+        cy.get('div._showAll_qgay7_27').first().scrollIntoView();
 
-        cy.get('div._flex_rbhr4_1').first().within(() => {
-        cy.get('div._game_qgay7_1').then(($cards) => {
-            const container = $cards[0].parentElement.parentElement;
-            const containerRect = container.getBoundingClientRect();
+        // Click the Show All button
+        cy.get('div._showAll_qgay7_27').first().click();
 
-            const visibleCards = [...$cards].filter(card => {
-                const rect = card.getBoundingClientRect();
-                return rect.left < containerRect.right && rect.right > containerRect.left;
-            });
+        // Ensure redirected or that many more game cards are loaded
+        cy.get('div._game_qgay7_1').should('have.length.greaterThan', 20);
+    });
 
-            expect(visibleCards.length).to.eq(8);
-        });
-        });
 });
-
-    it.only('TC011 - should display all games after clicking "Show All"', () => {
-    cy.visit('/');
-
-    // Scroll to ensure the button is in view
-    cy.get('div._showAll_qgay7_27').first().scrollIntoView();
-
-    // Click the Show All button
-    cy.get('div._showAll_qgay7_27').first().click();
-
-    // Ensure redirected or that many more game cards are loaded
-    cy.get('div._game_qgay7_1').should('have.length.greaterThan', 20);
-    });
-
-    });
 
