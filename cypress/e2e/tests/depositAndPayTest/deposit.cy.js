@@ -24,4 +24,23 @@ describe('Tests Deposits and Payment Methots', () => {
         UserSectionPage.clickDepositLink();
         depositPay.verifyClickableDepositMethods();
     });
+
+    it.only('TC166 - Verify Min/Max Limits for Deposit Methods', () => {
+        UserSectionPage.clickDepositLink();
+        //depositPay.verifyAllDepositMethodsLimits()
+        depositPay.verifyMinMaxLimitsDepositMethod("jeton_cash")
+        depositPay.clickBack("mastercard_light", '0')
+        depositPay.clickBack("mastercard_light", '1')
+        depositPay.clickBack("visa_light", '0')
+        depositPay.clickBack("visa_light", '1')
+        depositPay.clickBack("visa_light", '2')
+        depositPay.clickBack("visa_light", '3')
+        depositPay.clickBack("visa_light", '4')
+        depositPay.clickBack("visa_light", '5')
+    });
+
+    it('many many', () => {
+        UserSectionPage.clickDepositLink();
+        depositPay.verifyAllDepositMethodsLimits()
+    });
 });
