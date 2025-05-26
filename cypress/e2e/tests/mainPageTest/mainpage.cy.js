@@ -85,13 +85,13 @@ describe('Navigation Bar Test', () => {
         });
     });
 
- it('TC010 - should visually display 8 games in Provider display section (no scroll)', () => {
+    it('TC010 - should visually display 8 games in Provider display section (no scroll)', () => {
     cy.visit('/');
 
-    // Scroll to the provider section
-    cy.get('div._flex_rbhr4_1').first().scrollIntoView();
+        // Scroll to the provider section
+         cy.get('div._flex_rbhr4_1').first().scrollIntoView();
 
-    cy.get('div._flex_rbhr4_1').first().within(() => {
+        cy.get('div._flex_rbhr4_1').first().within(() => {
         cy.get('div._game_qgay7_1').then(($cards) => {
             const container = $cards[0].parentElement.parentElement;
             const containerRect = container.getBoundingClientRect();
@@ -103,8 +103,21 @@ describe('Navigation Bar Test', () => {
 
             expect(visibleCards.length).to.eq(8);
         });
-    });
+        });
 });
 
-});
+    it.only('TC011 - should display all games after clicking "Show All"', () => {
+    cy.visit('/');
+
+    // Scroll to ensure the button is in view
+    cy.get('div._showAll_qgay7_27').first().scrollIntoView();
+
+    // Click the Show All button
+    cy.get('div._showAll_qgay7_27').first().click();
+
+    // Ensure redirected or that many more game cards are loaded
+    cy.get('div._game_qgay7_1').should('have.length.greaterThan', 20);
+    });
+
+    });
 
