@@ -39,7 +39,7 @@ describe('Tests Deposits and Payment Methots', () => {
         depositPay.clickBack("visa_light", '5')
     });
 
-    it.only('TC167 - Verify Bonus Section is Available for All Methods', () => {
+    it('TC167 - Verify Bonus Section is Available for All Methods', () => {
         UserSectionPage.clickDepositLink();
         depositPay.verifyHaveBonusDontWantABonus("jeton_cash")
         depositPay.clickBackBonus("mastercard_light", '0')
