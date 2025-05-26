@@ -10,7 +10,7 @@ module.exports = defineConfig({
     specPattern: [
       "cypress/e2e/**/*.cy.{js,jsx,ts,tsx}",
     ],
-    defaultCommandTimeout: 120000, // Sets a higher timeout for commands
+    defaultCommandTimeout: 9000, // Sets a higher timeout for commands
     chromeWebSecurity: false, // Allows testing cross-origin iframes
     setupNodeEvents(on, config) {
       allureWriter(on, config);

@@ -25,7 +25,7 @@ describe('Tests Deposits and Payment Methots', () => {
         depositPay.verifyClickableDepositMethods();
     });
 
-    it.only('TC166 - Verify Min/Max Limits for Deposit Methods', () => {
+    it('TC166 - Verify Min/Max Limits for Deposit Methods', () => {
         UserSectionPage.clickDepositLink();
         //depositPay.verifyAllDepositMethodsLimits()
         depositPay.verifyMinMaxLimitsDepositMethod("jeton_cash")
@@ -39,8 +39,10 @@ describe('Tests Deposits and Payment Methots', () => {
         depositPay.clickBack("visa_light", '5')
     });
 
-    it('many many', () => {
+    it.only('TC167 - Verify Bonus Section is Available for All Methods', () => {
         UserSectionPage.clickDepositLink();
-        depositPay.verifyAllDepositMethodsLimits()
+        depositPay.verifyHaveBonusDontWantABonus("jeton_cash")
+        depositPay.clickBackBonus("mastercard_light", '0')
+        depositPay.clickBackBonus("mastercard_light", '1')
     });
 });
