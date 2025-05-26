@@ -28,9 +28,15 @@ describe('Tests Deposits and Payment Methots', () => {
     });
 
 
-    it.only('TC155 - Error Message for Unlinked Bank Account/method', () => {
+    it('TC155 - Error Message for Unlinked Bank Account/method', () => {
         UserSectionPage.clickButtonPerfil();
         UserSectionPage.clickWithdrawLink();
         withdraw.verifiMsgAccountIsNotLinked("acme-payments_light");
+    });
+
+        it.only('TC157 - Withdrawal Amount Within Limits', () => {
+        UserSectionPage.clickButtonPerfil();
+        UserSectionPage.clickWithdrawLink();
+        withdraw.verifyAllDepositMethodsLimitsWithDraw()
     });
 });
