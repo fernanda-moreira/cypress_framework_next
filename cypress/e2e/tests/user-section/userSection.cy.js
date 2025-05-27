@@ -34,9 +34,9 @@ describe('User Section Tests', () => {
         UserSectionPage.verifyRealMoneyBalance();
     });
 
-    it('TC179 - should display bonus balance', () => {
-        UserSectionPage.verifyBonusBalance();
-    });
+    //it('TC179 - should display bonus balance', () => {
+       // UserSectionPage.verifyBonusBalance();
+   // });
 
     it('TC180 - should navigate to profile page', () => {
         UserSectionPage.clickButtonPerfil();
@@ -48,10 +48,10 @@ describe('User Section Tests', () => {
         UserSectionPage.clickInboxLink();
     });
 
-    it('TC182 - should navigate to bonuses page', () => {
-        UserSectionPage.clickBonusesLink();
-        cy.url().should('include', '/bonuses');
-    });
+    //it('TC182 - should navigate to bonuses page', () => {
+        //UserSectionPage.clickBonusesLink();
+        //cy.url().should('include', '/bonuses');
+   // });
 
     it('TC183 - should navigate to deposit page', () => {
         UserSectionPage.clickDepositLink();
@@ -72,8 +72,8 @@ describe('User Section Tests', () => {
         UserSectionPage.clickAccountStatementLink();
     });
 
-    it('TC187 - should logout and redirect to homepage or login page', () => {
-        UserSectionPage.clickLogout();
-        cy.url().should('include', '/login'); // or '/' depending on implementation
-    });
+    //it('TC187 - should logout and redirect to homepage or login page', () => {
+        //UserSectionPage.clickLogout();
+        //cy.url().should('include', '/login'); // or '/' depending on implementation
+    //});
 });

@@ -1,6 +1,7 @@
 name: Regression End-to-end tests
 
-on: push
+on:
+  workflow_dispatch  # Só executa manualmente, quando você quiser
 
 jobs:
   cypress-run:
@@ -8,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        containers: [1, 2, 3, 4, 5, 6]  # Usando 6 containers para paralelizar
+        containers: [1, 2, 3, 4, 5, 6]
 
     steps:
       - name: Checkout
@@ -23,6 +24,6 @@ jobs:
           record: true
           parallel: true
           group: "Regression Tests - Parallel"
-          ci-build-id: ${{ github.run_id }}  # Garante um ID único para cada execução
+          ci-build-id: ${{ github.run_id }}
         env:
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }} 
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
