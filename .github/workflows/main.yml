@@ -1,10 +1,11 @@
 name: Regression End-to-end tests
 
 on:
-  workflow_dispatch  # Só executa manualmente, quando você quiser
+  push  # Continua ouvindo push, mas vamos filtrar a execução
 
 jobs:
   cypress-run:
+    if: contains(github.event.head_commit.message, 'run-test')  # Só executa se o commit contiver essa frase
     runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
