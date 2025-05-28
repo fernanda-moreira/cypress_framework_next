@@ -32,7 +32,7 @@ describe('User Section Tests', () => {
     it('TC178 - should display real money balance', () => {
         UserSectionPage.clickButtonPerfil();
         UserSectionPage.verifyRealMoneyBalance();
-    });
+    }); 
 
     //it('TC179 - should display bonus balance', () => {
        // UserSectionPage.verifyBonusBalance();
