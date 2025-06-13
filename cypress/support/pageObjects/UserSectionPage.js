@@ -60,6 +60,11 @@ class UserSectionPage {
         cy.url().should('include', '/account/financials/deposit');
     }
 
+    clickDepositModal() {
+        cy.get('.grid > ._secondary_i1e1t_9').should('be.visible').click()
+        cy.url().should('include', '/account/financials/deposit');
+    }
+
     clickWithdrawLink() {
         cy.get('a[href="/account/financials/withdraw"]').click();
         cy.url().should('include', '/account/financials/withdraw')

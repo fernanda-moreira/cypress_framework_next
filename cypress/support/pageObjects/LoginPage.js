@@ -69,7 +69,7 @@ class LoginPage {
         cy.get('input[name="password"]').should('have.attr', 'type', expectedType);
     }
 
-    // 🚀 Unified login method
+
     login(email, password) {
         this.visit();
         this.enterEmail(email);
