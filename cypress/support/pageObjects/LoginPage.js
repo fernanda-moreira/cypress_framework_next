@@ -3,6 +3,10 @@ class LoginPage {
         cy.visit('/?modal=login');
     }
 
+    visitBarra() {
+        cy.visit('/');
+    }
+
     enterEmail(email) {
         cy.get('input[name="email"]').clear().type(email);
     }
