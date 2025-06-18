@@ -2,6 +2,8 @@ import MainPage from '../../../support/pageObjects/mainPage';
 import LoginPage from '../../../support/pageObjects/LoginPage';
 import depositPay from '../../../support/pageObjects/depositPay';
 import UserSectionPage from '../../../support/pageObjects/UserSectionPage';
+import SearchPage from '../../../support/pageObjects/SearchPage';
+import mainPage from '../../../support/pageObjects/mainPage';
 
 describe('Navigation Bar Test', () => {
     let users;
@@ -121,6 +123,14 @@ describe('Navigation Bar Test', () => {
         cy.get('div._game_qgay7_1').should('have.length.greaterThan', 20);
     });
 
+    it('TC020 - Search Bar Functional', () => {
+        SearchPage.openSearchBar();
+        SearchPage.enterSearchTerm('Pho');
+        cy.wait(1000);
+        SearchPage.verifySearchResultContains('Pho');
+    });
+
+
 });
 
 describe('Navigation Bar Test', () => {
@@ -138,14 +148,16 @@ describe('Navigation Bar Test', () => {
         randomUser = validUserList[Math.floor(Math.random() * validUserList.length)];
     });
 
-    it.only('TC009 - Deposit Now Button from Pop-up Functional', () => {
+    it('TC009 - Deposit Now Button from Pop-up Functional', () => {
         LoginPage.visit()
         LoginPage.enterEmail(randomUser.username);
         LoginPage.enterPassword(randomUser.password);
         LoginPage.clickLoginButton()
-        
+
         UserSectionPage.clickDepositModal();
     });
+
+    
 });
 
 

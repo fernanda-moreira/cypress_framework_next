@@ -84,6 +84,11 @@ class MainPage {
         cy.url().should('include', '/casino/lucky_games');
     }
 
+    clickPlayNow() {
+
+    }
+
+
     // Optional: Uncomment if needed for broader checks
     // checkGamingOptionsMenuLinks() {
     //     const menuLinks = [
