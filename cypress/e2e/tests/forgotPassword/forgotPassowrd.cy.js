@@ -16,10 +16,13 @@ describe('Navigation Bar Test', () => {
         randomUser = validUserList[Math.floor(Math.random() * validUserList.length)];
     });
 
-    it('TC167 - Test close button', () => {
+    it.only('TC167 - Test close button', () => {
         LoginPage.visitBarra()
         forgotPassword.clickButtonLogin()
+        forgotPassword.clickForgotPassword()
+        forgotPassword.verifyUrlForgotPassword()
+        LoginPage.clickCloseModal()
     });
 
-    
+
 });
